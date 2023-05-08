@@ -1,9 +1,12 @@
-
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css"
+import { RouterProvider } from "react-router";
+import { router } from "./router";
 
 function App() {
   return (
     <div className="App">
-    <p>Helsinki City Bike App</p>
+    <RouterProvider router={router} />
     </div>
   );
 }
