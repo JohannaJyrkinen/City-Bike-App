@@ -1,29 +1,65 @@
 const csv = require('fast-csv');
 const fs = require('fs');
-const Journey = require('../models/journey')
+const Journey = require('../models/journey');
 
+const importJourneys = async () => {
+  console.log('Beginning to import journeys to MongoDB');
+  const filePath = './2021-05.csv';
+  let journeys = [];
+  let counter= 0; 
+  let invalidData =0
+  const readStream = fs.createReadStream(filePath);
 
-const importJourneys = () => {
+  const parser = csv.parse({ headers: true, ignoreEmpty: true })
+    .validate((data) => validateData(data))
+    .on('data', async (data) => {
+      ++counter
 
-  console.log('importing journeys to MongoDB')
+      const mappedData = {
+        departure: data.Departure,
+        return: data.Return,
+        departureStationId: data["Departure station id"],
+        departureStation: data["Departure station name"],
+        returnStationId: data["Return station id"],
+        returnStation: data["Return station name"],
+        distance: data["Covered distance (m)"],
+        duration: data["Duration (sec.)"],
+      };
+      journeys.push(mappedData);
 
-  let journeys = []
-  const filePath = ('')
-
-  fs.createReadStream(filePath)
-    .pipe(csv.parse({headers: true, ignoreEmpty: true}))
-    .on('data', (data) => {
-      journeys.push({...data})
+      if (counter >= 1000) {
+        parser.pause()
+        await Journey.insertMany(journeys);
+        journeys = [];
+        parser.resume(); 
+      }
     })
-    .on('error', (error) =>{
-      console.log('whoops, error occurred', error)
+    .on('data-invalid', () => ++invalidData)
+    .on('error', (error) => {
+      console.log('An error occurred:', error);
     })
     .on('end', async () => {
-      await Journey.insertMany(journeys)
-      journeys = [];
-      console.log('Station data imported successfully.');
-  });
+        console.log('parsing done, inserting last')
+        await Journey.insertMany(journeys);
+        journeys = []
+        console.log('Found ', invalidData, ' invalid rows')
+      
+    });
 
+  readStream.pipe(parser);
+};
+
+
+const validateData = (data) => {
+
+  if(
+    parseInt(data["Covered distance (m)"]) < 10 ||
+    parseInt(data["Duration (sec.)"]) < 10
+  ) {
+    return false; 
+  } else {
+  return true; 
+  }
 }
 
 module.exports = importJourneys;

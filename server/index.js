@@ -1,33 +1,25 @@
 const mongoose = require('mongoose')
 const express = require('express')
-const app = express()
+const connectMongoDB = require('./utils/databaseConnection')
 const cors = require('cors')
 const stationRouter = require('./controllers/stations')
 require('dotenv').config()
 const config = require('./utils/config')
-const Station = require('./models/station')
-//const importStations = require('./utils/importStations')
 
+const importJourneys = require('./utils/importJourneys')
+const importStations = require('./utils/importStations')
 
+connectMongoDB() 
 
-console.log('connecting...')
-  
-const mongoDB = config.MONGODB_URI
-  mongoose.connect(mongoDB)
-    .then(result => {
-        console.log('connected to MongoDB')
-    
-    })
-    .catch((error) => {
-        console.log('error connecting to MongoDB:', error.message)
-})
-
+const app = express()
 app.use(cors())
 app.use(express.json())
 app.use('/api/stations', stationRouter)
 
-//Already imported: stations
-//importStations(); 
+//Commented function calls, datasets are no longer empty
+//importStations()   
+//importJourneys();
+
 
 const PORT = config.PORT || 3001
 app.listen(PORT, () => {
