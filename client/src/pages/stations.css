@@ -15,3 +15,10 @@
 .header{
     text-align: center;
 }
+
+.pagination-button {
+    border: none;
+    background-color:  rgb(4, 112, 170);
+}
+
+
