@@ -5,8 +5,13 @@
 Data import
 * Data imported from the CSV files to a database
 * Data validated before importing, excluding following:
-  * Journeys that lasted for less than ten seconds
+  * Journeys that lasted less than ten seconds
   * Journeys that covered distances shorter than 10 meters
+
+Journeys:
+* List journeys
+* Pagination
+* Ordering per column
 
 Stations:
 * List stations
