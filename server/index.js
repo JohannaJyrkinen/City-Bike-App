@@ -3,6 +3,7 @@ const express = require('express')
 const connectMongoDB = require('./utils/databaseConnection')
 const cors = require('cors')
 const stationRouter = require('./controllers/stations')
+const journeyRouter = require('./controllers/journeys')
 require('dotenv').config()
 const config = require('./utils/config')
 
@@ -15,6 +16,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use('/api/stations', stationRouter)
+app.use('/api/journeys', journeyRouter)
 
 //Commented function calls, datasets are no longer empty
 //importStations()   

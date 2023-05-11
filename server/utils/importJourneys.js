@@ -1,3 +1,4 @@
+
 const csv = require('fast-csv');
 const fs = require('fs');
 const Journey = require('../models/journey');
@@ -5,6 +6,7 @@ const Journey = require('../models/journey');
 const importJourneys = async () => {
   console.log('Beginning to import journeys to MongoDB');
   const filePath = './2021-05.csv';
+  //const filePath= './2021-06.csv'
   let journeys = [];
   let counter= 0; 
   let invalidData =0
