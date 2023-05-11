@@ -13,7 +13,7 @@ export function Station({station}) {
     
         <Card style= {{marginBottom: "10px"}}>
             <Card.Body style={{textAlign: "center", fontFamily: 'Gotham Rounded, sans-serif'}}> 
-                <Card.Text>{station.Nimi}: {station.Osoite}, {station.Kaupunki}</Card.Text>
+                <Card.Text>{station.Nimi}, {station.Kaupunki}</Card.Text>
             </Card.Body>
         </Card>
         

@@ -11,7 +11,7 @@ export function Journeys() {
             <NavBar />
             <Container>
                 <header>
-                    <h1 style = {{fontFamily: 'Gotham Rounded, sans-serif', marginTop: "10px", textAlign: 'center' }}>Matkat</h1>
+                    <h1 style = {{fontFamily: 'Gotham Rounded, sans-serif', marginTop: "65px", textAlign: 'center' }}>Matkat</h1>
                 </header>
                 <Journey/>
             </Container>
