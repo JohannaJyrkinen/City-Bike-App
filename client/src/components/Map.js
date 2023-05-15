@@ -6,9 +6,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 export function Map({station}) {
 
-    
-
-let DefaultIcon = L.icon({
+    let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow
 });
@@ -16,7 +14,7 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
     return(
-        <MapContainer center={[station.y, station.x]} zoom={13} style={{ height:"400px",marginTop:"10px", marginBottom:'20px'
+        <MapContainer center={[station.y, station.x]} zoom={13} scrollWheelZoom={false} style={{ height:"400px",marginTop:"10px", marginBottom:'10px'
     }}  >
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

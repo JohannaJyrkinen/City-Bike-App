@@ -24,10 +24,7 @@ export function Station({station}) {
             <Card.Body style={{textAlign: "center", fontFamily: 'Gotham Rounded, sans-serif'}}> 
                     <Row>
                         <Col>
-                            {station.Nimi}
-                        </Col>
-                        <Col>
-                            <Button onClick={handleClick}>
+                            {station.Nimi} <Button onClick={handleClick}>
                             {!isOpen ? "+" : "-"}
                             </Button>
                         </Col>
