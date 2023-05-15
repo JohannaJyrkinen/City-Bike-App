@@ -3,7 +3,7 @@
 ### Features
 
 Data import
-* Data imported from the CSV files to a database
+* Data imported from the CSV files to a MongoDB database
 * Data validated before importing, excluding following:
   * Journeys that lasted less than ten seconds
   * Journeys that covered distances shorter than 10 meters
