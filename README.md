@@ -16,6 +16,12 @@ Journeys:
 Stations:
 * List stations
 * Pagination
+* Single station view
+  * Address
+  * Total number of journeys starting from the station
+  * Total number of journeys ending at the station
+  * Location on the map
+
 
 
 ### Datasets
@@ -31,3 +37,6 @@ Stations:
 * Database: Mongo DB Atlas
 * Server: Node.js, Express, Fast-CSV, Mongoose
 * Client: React.js, Axios, React-Bootstrap, Bootstrap
+
+
+
