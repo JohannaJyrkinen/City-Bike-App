@@ -1,0 +1,5 @@
+@media (max-width: 576px) {
+    .custom-card-body {
+      font-size: 8px;
+    }
+  }
