@@ -1,7 +1,19 @@
+import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 export function Map({station}) {
+
+    
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
     return(
         <MapContainer center={[station.y, station.x]} zoom={13} style={{ height:"400px",marginTop:"10px", marginBottom:'20px'
