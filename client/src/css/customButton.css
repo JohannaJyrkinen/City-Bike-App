@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/GothamRoundedBold_21016.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+.custom-button {
+    background-color:  transparent;
+    border: none;
+    color: #000;
+    padding: none;
+    
+}

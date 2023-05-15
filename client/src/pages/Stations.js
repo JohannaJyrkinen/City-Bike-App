@@ -4,7 +4,7 @@ import "./stations.css"
 import { Station } from "../components/Station";
 import { Container, Button } from "react-bootstrap";
 import axios from "axios";
-import Accordion from 'react-bootstrap/Accordion'
+
 
 
 export function Stations () {
@@ -41,7 +41,7 @@ export function Stations () {
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      };
+    };
 
 
     return(
@@ -59,7 +59,7 @@ export function Stations () {
                 </Container>
             
             <br/>
-            {stations ? (stations.map((station) => <Station key={station.ID} station={station}/>)): (<p>Error loading data</p>) }
+            {stations ? (stations.map((station) => <Station key={station.ID} station={station}/>)): (<div></div>) }
             <Container >
                 <div style={{ display: "flex", justifyContent: "center" }}>
                 <Button className="pagination-button" onClick={handlePreviousPage} style={{ fontFamily: 'Gotham Rounded, sans-serif', marginRight: "20px" }}>Previous</Button>
