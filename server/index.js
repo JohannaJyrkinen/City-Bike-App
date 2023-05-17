@@ -1,4 +1,3 @@
-const mongoose = require('mongoose')
 const express = require('express')
 const connectMongoDB = require('./utils/databaseConnection')
 const cors = require('cors')
@@ -7,9 +6,6 @@ const journeyRouter = require('./controllers/journeys')
 const statisticsRouter = require('./controllers/statistics')
 require('dotenv').config()
 const config = require('./utils/config')
-
-const importJourneys = require('./utils/importJourneys')
-const importStations = require('./utils/importStations')
 
 connectMongoDB() 
 
@@ -21,6 +17,8 @@ app.use('/api/journeys', journeyRouter)
 app.use('/api/statistics', statisticsRouter)
 
 //Commented function calls, datasets are no longer empty
+//const importJourneys = require('./utils/importJourneys')
+//const importStations = require('./utils/importStations')
 //importStations()   
 //importJourneys();
 

@@ -1,6 +1,9 @@
 #csv files
 *.csv
 
+# ESLint file
+.eslintrc.js
+
 # Logs
 logs
 *.log

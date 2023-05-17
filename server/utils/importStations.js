@@ -1,5 +1,5 @@
-const csv = require('fast-csv');
-const fs = require('fs');
+const csv = require('fast-csv')
+const fs = require('fs')
 const Station = require('../models/station')
 
 
@@ -9,7 +9,6 @@ const importStations = () => {
 
   let stations = []
   const filePath = ('../asemat.csv')
-
 
   fs.createReadStream(filePath)
     .pipe(csv.parse({headers: true, ignoreEmpty: true}))
@@ -21,10 +20,10 @@ const importStations = () => {
     })
     .on('end', async () => {
       await Station.insertMany(stations)
-      stations = [];
-      console.log('Station data imported successfully.');
-  });
+      stations = []
+      console.log('Station data imported successfully.')
+    })
 
 }
 
-module.exports = importStations;
+module.exports = importStations
