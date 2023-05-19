@@ -15,6 +15,7 @@ Journeys:
 
 Stations:
 * List stations
+* Search station by name
 * Pagination
 * Single station view
   * Address
@@ -37,6 +38,21 @@ Stations:
 * Database: Mongo DB Atlas
 * Server: Node.js, Express, Fast-CSV, Mongoose
 * Client: React.js, Axios, React-Bootstrap, Bootstrap
+
+### Stuff to do
+* Implement e2e testing with Robot Framework
+* Dockerize the app, deploy in AWS Elastic Beanstalk
+
+<br>
+
+![Screenshot 2023-05-19 092501](https://github.com/JohannaJyrkinen/City-Bike-App/assets/123321257/f33ae6d1-f08f-47c6-8b65-3edc7409eb59)
+
+
+![Screenshot 2023-05-19 092305](https://github.com/JohannaJyrkinen/City-Bike-App/assets/123321257/a0113b4a-4163-41a3-999f-9999bd8999da)
+
+
+
+
 
 
 
