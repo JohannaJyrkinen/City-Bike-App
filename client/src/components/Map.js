@@ -14,7 +14,7 @@ export function Map({station}) {
 L.Marker.prototype.options.icon = DefaultIcon;
 
     return(
-        <MapContainer center={[station.y, station.x]} zoom={13} scrollWheelZoom={false} style={{ height:"400px",marginTop:"10px", marginBottom:'10px'
+        <MapContainer center={[station.y, station.x]} zoom={16} scrollWheelZoom={false} style={{ height:"400px",marginTop:"10px", marginBottom:'10px'
     }}  >
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
